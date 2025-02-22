@@ -1,0 +1,113 @@
+:root {
+  --primary-blue: #3b82f6;
+  --primary-blue-dark: #2563eb;
+  --gray-800: #1f2937;
+  --neutral-400: #9ca3af;
+  --neutral-900: #111827;
+
+  /* Dark mode variables */
+  --bg-dark: #111827;
+  --text-dark: #ffffff;
+  --border-dark: #374151;
+}
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+body {
+  
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  font-family:  Helvetica  ;
+}
+
+ .btn1{
+  align-self: end; 
+   width: auto;
+   margin-right: 10%;
+   margin-top: 40px;
+   
+}  
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  width: 95%;
+  margin-right: 30px;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-col{
+  height: 450px;
+  width: 490px;
+  
+}
+.content-col h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 5rem;
+  margin-top: 15px;
+}
+
+.content-col p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  line-height: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.cta-group {
+  display: inline-flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+
+.input-wrapper {
+  margin-right: 20px;
+}
+
+
+
+.demo-button {
+  align-self: start; 
+}
+/* Light mode */
+#emailHelp {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+/* Dark mode styles for #emailHelp */
+.dark-mode #emailHelp {
+  color: white; /* Change text color for dark mode */
+  background-color: black; /* Optional: change background color for better contrast */
+}
+
+.brand-logos {
+   display: flex;
+  align-items: start; 
+  margin-top: 20px;
+   
+}
+
+.logo1{
+   
+   width: 90px;
+}
+.logo2{
+  
+  margin: 0 30px;
+}
+.logo3{
+   width: 90px;
+ 
+}

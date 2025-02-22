@@ -1,0 +1,190 @@
+
+  * {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+/* Navbar */
+nav {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 15px 0px;
+   background-color: #29232b;
+   color: #ffffff;
+}
+nav div ul {
+   display: flex;
+   gap: 10px;
+   list-style-type: none;
+}
+nav div ul a {
+   color: white;
+   text-decoration: none;
+}
+nav div button {
+   padding: 8px 16px;
+   border-radius: 10px;
+   cursor: pointer;
+   margin: 5px;
+   border: none;
+}
+nav div button:hover {
+   background-color: #db38bc;
+   color: #ffffff;
+}
+
+/* Hero Section */
+.hero {
+   display: flex;
+   background-color: #2b232e;
+   color: #ffffff;
+   justify-content: space-around;
+   align-items: center;
+   padding: 40px 80px;
+}
+.hero-title {
+   font-size: 3rem;
+   margin-bottom: 1rem;
+}
+.hero div {
+   width: 50%;
+}
+.hero div p {
+   font-size: 1rem;
+   margin-bottom: 20px;
+}
+.hero div button {
+   padding: 8px 16px;
+   border-radius: 5px;
+   cursor: pointer;
+   border: none;
+   width: 200px;
+}
+.hero div.img {
+   padding-left: 25px;
+}
+.hero div img {
+   width: 100%;
+   border-radius: 20px;
+   object-fit: contain;
+   box-shadow: 0 0 10px #ffffff;
+}
+.hero div img:hover {
+   transform: rotate(8deg);
+   transition: all 0.9s ease-in-out;
+}
+
+/* Title */
+.title {
+   text-align: center;
+   background-color: #2b232e;
+   margin-top: 2 rem;
+   color: #ffffff;
+}
+
+/* Client Section */
+.client-section {
+   background-color: #2b232e;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 30px;
+   padding: 40px;
+}
+.client-card {
+   display: flex;
+   background-color: #312635;
+   margin: 25px;
+   flex-direction: column;
+   width: 100%;
+   border-radius: 20px;
+   min-height: 360px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   /* border: 1px solid white; */
+}
+.client-card:hover {
+   transform: scale(1.05);
+   filter: brightness(1.2);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+}
+.client-card img {
+   margin: 10px;
+   object-fit: contain;
+   border-radius: 10px;
+   width: calc(100% - 20px);
+}
+.client-info {
+   margin: 10px;
+   color: white;
+   opacity: 0.5;
+}
+.client-info h3 {
+   font-size: 1.5rem;
+   margin-bottom: 15px;
+}
+.card-button {
+   width: 90%;
+   padding: 10px;
+   margin: 5px auto;
+   border-radius: 20px;
+   align-items: center;
+   border: none;
+}
+.card-button:hover {
+   cursor: pointer;
+   background-color: green;
+}
+
+
+
+@media (max-width: 768px) {
+   
+   .hero {
+       flex-direction: column; 
+       padding: 30px 40px;      
+   }
+   
+   .hero div {
+       width: 100%;
+       text-align: center;
+   }
+   
+   .hero div.img {
+       padding-left: 0;
+       margin-top: 20px; 
+   }
+   
+   .client-section {
+        grid-template-columns: repeat(2, 1fr); 
+        padding: 30px; 
+   }
+}
+
+
+@media (max-width: 480px) {
+   
+   .hero {
+       padding: 20px 20px;
+   }
+   
+   nav {
+       flex-direction: column;
+   }
+   nav div ul {
+       flex-direction: column;
+       gap: 5px;  
+   }
+   
+   .client-section {
+        grid-template-columns: 1fr; 
+        padding: 20px; 
+   }
+   
+   .client-card {
+        width: 100%;      
+        margin: 15px 0;   
+   }
+}
