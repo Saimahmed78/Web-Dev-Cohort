@@ -1,0 +1,141 @@
+/* Challenge CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+  padding: 2vw;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pricing-heading {
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+/* Responsive Grid */
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 2vw;
+  justify-content: center;
+  max-width: 90vw;
+  margin: auto;
+}
+
+.pricing-card {
+  position: relative; 
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(rgb(186, 255, 248), #f8f8f8); 
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease;
+
+}
+
+.pricing-card:hover {
+  
+  transform: translateY(-8px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background: linear-gradient(rgb(143, 150, 149), #988f8f); 
+  filter: brightness(1.2);
+}
+
+.basic { min-height: 70vh; }
+.popular {
+  min-height: 70vh;
+  border: 2px dashed #4CAF50;
+}
+.family { min-height: 70vh; }
+
+.popular-badge {
+  background-color: rgb(51, 182, 51);
+  position: absolute;
+  top: -10px; 
+  left: 50%; 
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  text-transform: uppercase
+}
+
+.price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 1rem;
+}
+
+.period {
+  opacity: 0.5;
+  margin: 2vh;
+}
+
+.features {
+  list-style: none; 
+}
+
+.subscribe-btn {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: none;
+  margin-top: 2vh;
+  background: linear-gradient(to right, #4CAF50, #81C784);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  outline: 2px solid #4CAF50;
+}
+
+.subscribe-btn:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, #43A047, #66BB6A); 
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); 
+  transform: scale(1.05); 
+  filter: brightness(1.3);
+}
+
+/* 📱 Tablet View (768px): 2-column layout */
+@media (max-width: 768px) {
+  .pricing-container {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 3vw;
+  }
+
+  .popular-badge {
+    left: 50%; /* Keep badge centered */
+    transform: translateX(-50%);
+  }
+}
+
+/* 📱 Mobile View (460px): 1-column layout */
+@media (max-width: 460px) {
+  .pricing-container {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card {
+    width: 90%;
+    margin: auto;
+  }
+
+  .popular-badge {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
