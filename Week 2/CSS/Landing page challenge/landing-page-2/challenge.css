@@ -1,0 +1,156 @@
+/* Challenge CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(90, 73, 73);
+  height: 65px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  margin-left: 50px;
+}
+
+.logo img {
+  border-radius: 80px;
+  margin-right: 10px;
+  border: 2px solid gold;
+}
+
+.menu {
+  display: flex;
+  width: 18%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 50px;
+  font-size: 1.1rem;
+}
+.menu a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu a:hover {
+  color: chocolate;
+}
+
+/* Hero section styles */
+.hero {
+  height: 65vh;
+  background-image: url('./assets/chaicohort.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* Makes sure text is on top */
+  color: white;
+  /* Ensure text is visible */
+  line-height: 1.5;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: rgba(106, 184, 67, 0.797);
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.hero-content img {
+ 
+  border-radius: 5px;
+  border: none;
+  border: 2px solid gold;
+  margin-top: 20px;
+ 
+}
+
+.enroll-button {
+  padding: 15px 30px;
+  border-radius: 40px;
+  border: none;
+  background-color: rgb(182, 206, 159);
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.enroll-button:hover {
+  cursor: pointer;
+  color: chocolate;
+}
+
+/* Highlights section styles */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 200px;
+  padding: 50px;
+  overflow: hidden;
+  background-color: rgba(21, 7, 7, 0.97);
+  background-blend-mode: multiply;
+ 
+}
+
+.highlight-card {
+  color: white;
+  background-color: rgb(21, 23, 22);
+  padding: 10px 40px;
+  line-height: 2.25;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+.highlight-card p {
+  color: white;
+}
