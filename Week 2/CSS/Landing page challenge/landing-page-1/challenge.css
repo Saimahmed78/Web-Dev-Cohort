@@ -1,0 +1,193 @@
+/* Challenge CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(90, 73, 73);
+  height: 75px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  margin-left: 50px;
+}
+
+.logo img {
+  border-radius: 80px;
+  margin-right: 20px;
+}
+
+.nav-links {
+  display: flex;
+  width: 14%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50px;
+  font-size: 1.1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links a:hover {
+  color: chocolate;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hide checkbox */
+#nav-toggle {
+  display: none;
+}
+
+/* Hero section styles */
+.hero {
+  height: 100vh;
+  background-image: url('./assets/chaigym.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/*  overlay for better visibility */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* Makes sure text is on top */
+  color: white;
+  /* Ensure text is visible */
+  line-height: 2;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+}
+
+
+.cta-button {
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(121, 204, 44);
+  margin-top: 40px;
+  font-size: 1.1rem;
+}
+
+.cta-button:hover {
+  cursor: pointer;
+}
+
+/* Features section styles */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Creates 3 equal-width columns */
+  gap: 200px;
+  /* Spacing between the cards */
+  padding: 60px;
+  margin-top: 120px;
+  overflow: hidden;
+  background-color: rgba(8, 8, 8, 0.85);
+  background-blend-mode: multiply;
+  border-radius: 20px;
+}
+
+.feature {
+
+  color: white;
+
+  padding: 10px 30px;
+  line-height: 2.25;
+  border: 3px solid rgb(232, 164, 18);
+  border-radius: 20px;
+
+}
+.feature img {
+  filter: brightness(1.5) !important;
+}
+.feature h3 {
+  color: gold;
+  
+}
+
+.feature p {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(90, 73, 73);
+    display: none;
+
+  }
+
+  /* Show hamburger icon */
+  .hamburger {
+    display: block;
+  }
+
+  /* When the checkbox is checked, display nav links using the general sibling selector */
+  #nav-toggle:checked~.nav-links {
+    display: flex;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 80px;
+  }
+}
