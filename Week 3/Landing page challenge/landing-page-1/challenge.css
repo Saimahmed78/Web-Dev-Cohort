@@ -17,7 +17,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: rgb(90, 73, 73);
-  height: 75px;
+  height: 60px;
   position: sticky;
   top: 0;
   z-index: 1000;
