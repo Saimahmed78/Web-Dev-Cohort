@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>KANBAN PROJECT</h1>
+    <div id="container" class="container">
+        <div class=" board" id="todo-board">
+
+            <b>Todo</b>
+            <button class="delboard">Delete Board</button>
+            
+            <button id="todo-btn" class="btn">Create task </button>
+        </div>
+
+        <div class="board" id="progress-board"><b>In Progress</b>
+            <button class="delboard">Delete Board</button>
+            
+            <button id="progress-btn" class="btn">Create task</button>
+
+        </div>
+
+        <div class=" board" id="done-board"><b>Done</b>
+            
+            <button id="done-btn" class="btn">Create task</button>
+        </div>
+
+    </div>
+    <button id="newcardboard">Create new board</button>
+    <script src="app.js"></script>
+</body>
+
+</html>

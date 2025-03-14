@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+
+}
+
+.container {
+    display: flex;
+}
+
+.board {
+    border: 2px solid black;
+    height: 100vh;
+    width: 25%;
+    margin: 30px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 14px 14px 34px -1px rgba(0,0,0,0.56);
+-webkit-box-shadow: 14px 14px 34px -1px rgba(0,0,0,0.56);
+-moz-box-shadow: 14px 14px 34px -1px rgba(0,0,0,0.56);
+}
+
+.card {
+    border: 1px solid black;
+    margin: 20px;
+    width: 84%;
+    height: 10%;
+    /* border-radius: 12px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.editbtn{
+    font-size: 8px; 
+    padding: 2px 4px;  
+    height: 16px;
+    width: 24px;
+}
+.delbtn{
+      font-size: 8px; 
+      padding: 2px 4px;
+      height: 16px;
+    width: 36px;
+}    
+
+.btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px;
+}
+.btns{
+    display: flex;
+    /* flex-direction: column; */
+    width: 40%;
+    /* height: 100%; */
+    align-items: center;
+    justify-content: space-between;
+    background-color: thistle;
+}
