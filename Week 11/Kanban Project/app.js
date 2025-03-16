@@ -12,6 +12,23 @@ btns.forEach((btn)=>{
     })
 })
 
+
+function updatetaskcount(triggeredElement,excludeFlying) {
+    if (!triggeredElement) return; // Prevent errors if element is null
+    const parent = triggeredElement.closest(".board"); // Find the closest parent board
+
+    if (!parent) return; // If no board found, exit
+  let siblings = [...parent.querySelectorAll(" .card")];
+
+    if (excludeFlying) {
+        siblings = siblings.filter(card => !card.classList.contains("flying"));
+    }
+    let taskcount = parent.querySelector(".taskcount"); // Find the counter inside the board
+    if (taskcount) {
+        taskcount.innerText = siblings.length; // Update the count
+    }
+}
+
 function addEventListeners(board) {
     let reqboard = document.querySelector(`#${board}`); 
     let task = prompt("Please Enter your task")
@@ -29,7 +46,9 @@ function addEventListeners(board) {
         delbtn.classList.add("delbtn")
         delbtn.innerText = "Delete"
         delbtn.addEventListener("click", () => {
-            taskdiv.remove()
+            const parentBoard = taskdiv.closest(".board"); // Store parent before removing the task
+            taskdiv.remove(); // Remove the task
+            updatetaskcount(parentBoard); // Now update the task count using the board
         })
 
         let editbtn = document.createElement("button")
@@ -38,6 +57,8 @@ function addEventListeners(board) {
         editbtn.addEventListener("click", () => {
             let newtask = prompt("Edit the task")
             taskp.innerText = newtask
+            
+            
         })
         reqboard.appendChild(taskdiv)
         btns.appendChild(delbtn)
@@ -47,6 +68,7 @@ function addEventListeners(board) {
         
         
        attachdragitems(taskdiv)
+
     }
 }
 taskbtns.forEach((btn) => 
@@ -55,31 +77,50 @@ taskbtns.forEach((btn) =>
     event.stopPropagation()
     if (board) {
         addEventListeners(board)
+        updatetaskcount(btn)
     }
 }))
 function attachdragitems(target){
-target.addEventListener("dragstart", (event) => {     
-        dragelement=event.target
-        dragelement.classList.add("flying")    
-    })
-target.addEventListener("dragend", (event) => {
-        dragelement.classList.remove("flying") 
-        dragelement = null; // clear the reference
+target.addEventListener("dragstart", (event) => {    
+     
+    dragelement = event.target;
+    const parentBoard = dragelement.closest(".board");
 
-        }
-    )
+    if (parentBoard) {
+        updatetaskcount(parentBoard, true); // Update BEFORE moving
+    }
+
+    dragelement.classList.add("flying");
+})
+
+target.addEventListener("dragend", (event) => {
+    if (dragelement) {
+        const newBoard = dragelement.closest(".board"); // Board after drop
+        updatetaskcount(newBoard, false); // Update new board
+
+        setTimeout(() => {
+            document.querySelectorAll(".board").forEach(board => updatetaskcount(board));
+        }, 0);
+    }
+
+    dragelement.classList.remove("flying");
+    dragelement = null;
+        
+})
 }
 cards.forEach((card)=> attachdragitems(card))
 
 function appenddragelements() {
     boards.forEach((board) => {
         attachDragoverListener(board);
+        
     });
 }
 function attachDragoverListener(board) {
     board.addEventListener("dragover", () => {
         if (dragelement) {
             board.appendChild(dragelement);
+            // updatetaskcount(board); // Update task count
         }
     });
 }
@@ -104,9 +145,14 @@ newcardboard.addEventListener("click",()=>{
     newcardboard.appendChild(taskbtn)
     taskbtn.addEventListener("click",(event)=>{
         let newboard1 = event.target.closest(".board")?.id;
+        console.log(newboard)
         event.stopPropagation()
     if (newboard1) {
+        console.log(newboard)
         addEventListeners(newboard1)
+        updatetaskcount(taskbtn)
+        console.log(12);
+        
     }
     })
     let delbtn=document.createElement("button")
@@ -114,8 +160,14 @@ newcardboard.addEventListener("click",()=>{
     newcardboard.append(delbtn)
     delbtn.addEventListener("click",()=>{
         newcardboard.remove()
+        updatetaskcount(delbtn)
     })
-    
+
+    let taskcountp=document.createElement("p")
+        taskcountp.innerText=0
+        taskcountp.classList.add("taskcount")
+        newcardboard.appendChild(taskcountp)
+
     attachDragoverListener(newcardboard)
   
 })
