@@ -3,9 +3,8 @@ let boards = document.querySelectorAll  (".board")
 let cards= document.querySelectorAll(".card")
 let newcardboard= document.querySelector("#newcardboard")
 let boardscontainer=document.getElementById("container")
-
-
 let btns=document.querySelectorAll(".delboard")
+
 btns.forEach((btn)=>{
     btn.addEventListener("click",()=>{
         btn.parentElement.remove()
@@ -42,6 +41,12 @@ function addEventListeners(board) {
 
         let btns = document.createElement("div")
         btns.classList.add("btns")
+        let time=document.createElement("p")
+        const now= new Date()
+        const hours= now.getHours()
+        const minutes= now.getMinutes()
+        const seconds= now.getSeconds()
+        time.innerText= `Task created at ${hours}:${minutes}:${seconds}`
         let delbtn = document.createElement("button")
         delbtn.classList.add("delbtn")
         delbtn.innerText = "Delete"
@@ -57,7 +62,11 @@ function addEventListeners(board) {
         editbtn.addEventListener("click", () => {
             let newtask = prompt("Edit the task")
             taskp.innerText = newtask
-            
+            const now= new Date()
+        const hours= now.getHours()
+        const minutes= now.getMinutes()
+        const seconds= now.getSeconds()
+        time.innerText= `Task edited at ${hours}:${minutes}:${seconds}`
             
         })
         reqboard.appendChild(taskdiv)
@@ -65,7 +74,7 @@ function addEventListeners(board) {
         btns.appendChild(editbtn)
         taskdiv.appendChild(taskp)
         taskdiv.appendChild(btns)
-        
+        taskdiv.appendChild(time)
         
        attachdragitems(taskdiv)
 
