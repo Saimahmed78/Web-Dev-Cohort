@@ -68,6 +68,7 @@ b {
     margin: 10px;
     transition: background 0.3s ease-in-out;
 }
+<<<<<<< Updated upstream
 
 .btn:hover, .delboard:hover {
     background-color: #4834d4;
@@ -88,6 +89,9 @@ b {
     margin: 10px 0;
     padding: 10px;
     border-radius: 8px;
+=======
+.btnsdiv{
+>>>>>>> Stashed changes
     display: flex;
     flex-direction: column;
     align-items: center;
