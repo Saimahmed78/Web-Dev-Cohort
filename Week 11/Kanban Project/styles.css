@@ -4,62 +4,153 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-
 }
 
+body {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container for Kanban boards */
 .container {
     display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
+/* Styling for each board */
 .board {
     border: 2px solid black;
-    height: 100vh;
-    width: 25%;
-    margin: 30px;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    width: 300px;
+    min-height: 400px;
+    border-radius: 15px;
+    padding: 15px;
     position: relative;
-    box-shadow: 14px 14px 34px -1px rgba(0,0,0,0.56);
--webkit-box-shadow: 14px 14px 34px -1px rgba(0,0,0,0.56);
--moz-box-shadow: 14px 14px 34px -1px rgba(0,0,0,0.56);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
 
-.card {
-    border: 1px solid black;
-    margin: 20px;
-    width: 84%;
-    height: 10%;
-    /* border-radius: 12px; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.board:hover {
+    transform: translateY(-5px);
+}
+.bold{
+    font-weight: bold;
+}
+b {
+    font-size: 1.4rem;
+    color: #333;
 }
 
-.editbtn{
-    font-size: 8px; 
-    padding: 2px 4px;  
-    height: 16px;
-    width: 24px;
+/* Task count */
+.taskcount {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 5px 0;
 }
-.delbtn{
-      font-size: 8px; 
-      padding: 2px 4px;
-      height: 16px;
-    width: 36px;
-}    
 
-.btn {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+/* Buttons styling */
+.btn, .delboard {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
     margin: 10px;
+    transition: background 0.3s ease-in-out;
 }
-.btns{
+
+.btn:hover, .delboard:hover {
+    background-color: #4834d4;
+}
+
+.delboard {
+    background-color: #d63031;
+}
+
+.delboard:hover {
+    background-color: #ff7675;
+}
+
+/* Task Card Styling */
+.card {
+    background: white;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
     display: flex;
-    /* flex-direction: column; */
-    width: 40%;
-    /* height: 100%; */
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    background-color: thistle;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Edit & Delete buttons inside task cards */
+.editbtn, .delbtn {
+    font-size: 12px;
+    padding: 4px 6px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.editbtn {
+    background-color: #0984e3;
+    color: white;
+}
+
+.editbtn:hover {
+    background-color: #74b9ff;
+}
+
+.delbtn {
+    background-color: #d63031;
+    color: white;
+}
+
+.delbtn:hover {
+    background-color: #ff7675;
+}
+
+/* Dragging Effect */
+.flying {
+    opacity: 0.5;
+    border: 2px dashed #333;
+}
+
+/* New board button */
+#newcardboard {
+    background-color: #00b894;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease-in-out;
+}
+
+#newcardboard:hover {
+    background-color: #00cec9;
+}
+
+/* Hide elements */
+.hide {
+    opacity: 0;
 }
