@@ -1,0 +1,116 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    font-size: 1.5rem;
+  }
+  
+  /* Layout */
+  .container {
+    display: flex;
+    height: calc(100vh - 60px);
+  }
+  
+  /* Markdown Editor */
+  .editor, .preview {
+    flex: 1;
+    padding: 20px;
+    overflow: auto;
+  }
+  
+  .editor {
+    background-color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  #clear-btn {
+    padding: 8px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  #clear-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  #markdown-input {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    resize: none;
+    outline: none;
+  }
+  
+  /* Markdown Preview */
+  .preview {
+    background-color: #ffffff;
+    border-left: 2px solid #bdc3c7;
+  }
+  
+  #markdown-output {
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Markdown Styling */
+  #markdown-output h1 { font-size: 2rem; }
+  #markdown-output h2 { font-size: 1.5rem; }
+  #markdown-output h3 { font-size: 1.2rem; }
+  #markdown-output strong { font-weight: bold; }
+  #markdown-output em { font-style: italic; }
+  #markdown-output a { color: #3498db; text-decoration: none; }
+  #markdown-output ul, #markdown-output ol { padding-left: 20px; }
+  #markdown-output code {
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+  
+  /* Responsive Media Queries */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    .editor, .preview {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      font-size: 1.2rem;
+      padding: 10px;
+    }
+    #markdown-input, #markdown-output {
+      font-size: 0.9rem;
+    }
+  }
+  
